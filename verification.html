@@ -1,0 +1,3248 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <style type="text/css">
+        .swal-icon--error {
+            border-color: #f27474;
+            -webkit-animation: animateErrorIcon .5s;
+            animation: animateErrorIcon .5s
+        }
+
+        .swal-icon--error__x-mark {
+            position: relative;
+            display: block;
+            -webkit-animation: animateXMark .5s;
+            animation: animateXMark .5s
+        }
+
+        .swal-icon--error__line {
+            position: absolute;
+            height: 5px;
+            width: 47px;
+            background-color: #f27474;
+            display: block;
+            top: 37px;
+            border-radius: 2px
+        }
+
+        .swal-icon--error__line--left {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            left: 17px
+        }
+
+        .swal-icon--error__line--right {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            right: 16px
+        }
+
+        @-webkit-keyframes animateErrorIcon {
+            0% {
+                -webkit-transform: rotateX(100deg);
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            to {
+                -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+                opacity: 1
+            }
+        }
+
+        @keyframes animateErrorIcon {
+            0% {
+                -webkit-transform: rotateX(100deg);
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            to {
+                -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes animateXMark {
+            0% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+
+            50% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+
+            80% {
+                -webkit-transform: scale(1.15);
+                transform: scale(1.15);
+                margin-top: -6px
+            }
+
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                margin-top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animateXMark {
+            0% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+
+            50% {
+                -webkit-transform: scale(.4);
+                transform: scale(.4);
+                margin-top: 26px;
+                opacity: 0
+            }
+
+            80% {
+                -webkit-transform: scale(1.15);
+                transform: scale(1.15);
+                margin-top: -6px
+            }
+
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                margin-top: 0;
+                opacity: 1
+            }
+        }
+
+        .swal-icon--warning {
+            border-color: #f8bb86;
+            -webkit-animation: pulseWarning .75s infinite alternate;
+            animation: pulseWarning .75s infinite alternate
+        }
+
+        .swal-icon--warning__body {
+            width: 5px;
+            height: 47px;
+            top: 10px;
+            border-radius: 2px;
+            margin-left: -2px
+        }
+
+        .swal-icon--warning__body,
+        .swal-icon--warning__dot {
+            position: absolute;
+            left: 50%;
+            background-color: #f8bb86
+        }
+
+        .swal-icon--warning__dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-left: -4px;
+            bottom: -11px
+        }
+
+        @-webkit-keyframes pulseWarning {
+            0% {
+                border-color: #f8d486
+            }
+
+            to {
+                border-color: #f8bb86
+            }
+        }
+
+        @keyframes pulseWarning {
+            0% {
+                border-color: #f8d486
+            }
+
+            to {
+                border-color: #f8bb86
+            }
+        }
+
+        .swal-icon--success {
+            border-color: #a5dc86
+        }
+
+        .swal-icon--success:after,
+        .swal-icon--success:before {
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            width: 60px;
+            height: 120px;
+            background: #fff;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg)
+        }
+
+        .swal-icon--success:before {
+            border-radius: 120px 0 0 120px;
+            top: -7px;
+            left: -33px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transform-origin: 60px 60px;
+            transform-origin: 60px 60px
+        }
+
+        .swal-icon--success:after {
+            border-radius: 0 120px 120px 0;
+            top: -11px;
+            left: 30px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transform-origin: 0 60px;
+            transform-origin: 0 60px;
+            -webkit-animation: rotatePlaceholder 4.25s ease-in;
+            animation: rotatePlaceholder 4.25s ease-in
+        }
+
+        .swal-icon--success__ring {
+            width: 80px;
+            height: 80px;
+            border: 4px solid hsla(98, 55%, 69%, .2);
+            border-radius: 50%;
+            box-sizing: content-box;
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            z-index: 2
+        }
+
+        .swal-icon--success__hide-corners {
+            width: 5px;
+            height: 90px;
+            background-color: #fff;
+            padding: 1px;
+            position: absolute;
+            left: 28px;
+            top: 8px;
+            z-index: 1;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg)
+        }
+
+        .swal-icon--success__line {
+            height: 5px;
+            background-color: #a5dc86;
+            display: block;
+            border-radius: 2px;
+            position: absolute;
+            z-index: 2
+        }
+
+        .swal-icon--success__line--tip {
+            width: 25px;
+            left: 14px;
+            top: 46px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: animateSuccessTip .75s;
+            animation: animateSuccessTip .75s
+        }
+
+        .swal-icon--success__line--long {
+            width: 47px;
+            right: 8px;
+            top: 38px;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: animateSuccessLong .75s;
+            animation: animateSuccessLong .75s
+        }
+
+        @-webkit-keyframes rotatePlaceholder {
+            0% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+
+            to {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+        }
+
+        @keyframes rotatePlaceholder {
+            0% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+
+            to {
+                -webkit-transform: rotate(-405deg);
+                transform: rotate(-405deg)
+            }
+        }
+
+        @-webkit-keyframes animateSuccessTip {
+            0% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+
+            54% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+
+            70% {
+                width: 50px;
+                left: -8px;
+                top: 37px
+            }
+
+            84% {
+                width: 17px;
+                left: 21px;
+                top: 48px
+            }
+
+            to {
+                width: 25px;
+                left: 14px;
+                top: 45px
+            }
+        }
+
+        @keyframes animateSuccessTip {
+            0% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+
+            54% {
+                width: 0;
+                left: 1px;
+                top: 19px
+            }
+
+            70% {
+                width: 50px;
+                left: -8px;
+                top: 37px
+            }
+
+            84% {
+                width: 17px;
+                left: 21px;
+                top: 48px
+            }
+
+            to {
+                width: 25px;
+                left: 14px;
+                top: 45px
+            }
+        }
+
+        @-webkit-keyframes animateSuccessLong {
+            0% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+
+            65% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+
+            84% {
+                width: 55px;
+                right: 0;
+                top: 35px
+            }
+
+            to {
+                width: 47px;
+                right: 8px;
+                top: 38px
+            }
+        }
+
+        @keyframes animateSuccessLong {
+            0% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+
+            65% {
+                width: 0;
+                right: 46px;
+                top: 54px
+            }
+
+            84% {
+                width: 55px;
+                right: 0;
+                top: 35px
+            }
+
+            to {
+                width: 47px;
+                right: 8px;
+                top: 38px
+            }
+        }
+
+        .swal-icon--info {
+            border-color: #c9dae1
+        }
+
+        .swal-icon--info:before {
+            width: 5px;
+            height: 29px;
+            bottom: 17px;
+            border-radius: 2px;
+            margin-left: -2px
+        }
+
+        .swal-icon--info:after,
+        .swal-icon--info:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            background-color: #c9dae1
+        }
+
+        .swal-icon--info:after {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-left: -3px;
+            top: 19px
+        }
+
+        .swal-icon {
+            width: 80px;
+            height: 80px;
+            border-width: 4px;
+            border-style: solid;
+            border-radius: 50%;
+            padding: 0;
+            position: relative;
+            box-sizing: content-box;
+            margin: 20px auto
+        }
+
+        .swal-icon:first-child {
+            margin-top: 32px
+        }
+
+        .swal-icon--custom {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            border: none;
+            border-radius: 0
+        }
+
+        .swal-icon img {
+            max-width: 100%;
+            max-height: 100%
+        }
+
+        .swal-title {
+            color: rgba(0, 0, 0, .65);
+            font-weight: 600;
+            text-transform: none;
+            position: relative;
+            display: block;
+            padding: 13px 16px;
+            font-size: 27px;
+            line-height: normal;
+            text-align: center;
+            margin-bottom: 0
+        }
+
+        .swal-title:first-child {
+            margin-top: 26px
+        }
+
+        .swal-title:not(:first-child) {
+            padding-bottom: 0
+        }
+
+        .swal-title:not(:last-child) {
+            margin-bottom: 13px
+        }
+
+        .swal-text {
+            font-size: 16px;
+            position: relative;
+            float: none;
+            line-height: normal;
+            vertical-align: top;
+            text-align: left;
+            display: inline-block;
+            margin: 0;
+            padding: 0 10px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, .64);
+            max-width: calc(100% - 20px);
+            overflow-wrap: break-word;
+            box-sizing: border-box
+        }
+
+        .swal-text:first-child {
+            margin-top: 45px
+        }
+
+        .swal-text:last-child {
+            margin-bottom: 45px
+        }
+
+        .swal-footer {
+            text-align: right;
+            padding-top: 13px;
+            margin-top: 13px;
+            padding: 13px 16px;
+            border-radius: inherit;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0
+        }
+
+        .swal-button-container {
+            margin: 5px;
+            display: inline-block;
+            position: relative
+        }
+
+        .swal-button {
+            background-color: #7cd1f9;
+            color: #fff;
+            border: none;
+            box-shadow: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 24px;
+            margin: 0;
+            cursor: pointer
+        }
+
+        .swal-button:not([disabled]):hover {
+            background-color: #78cbf2
+        }
+
+        .swal-button:active {
+            background-color: #70bce0
+        }
+
+        .swal-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(43, 114, 165, .29)
+        }
+
+        .swal-button[disabled] {
+            opacity: .5;
+            cursor: default
+        }
+
+        .swal-button::-moz-focus-inner {
+            border: 0
+        }
+
+        .swal-button--cancel {
+            color: #555;
+            background-color: #efefef
+        }
+
+        .swal-button--cancel:not([disabled]):hover {
+            background-color: #e8e8e8
+        }
+
+        .swal-button--cancel:active {
+            background-color: #d7d7d7
+        }
+
+        .swal-button--cancel:focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(116, 136, 150, .29)
+        }
+
+        .swal-button--danger {
+            background-color: #e64942
+        }
+
+        .swal-button--danger:not([disabled]):hover {
+            background-color: #df4740
+        }
+
+        .swal-button--danger:active {
+            background-color: #cf423b
+        }
+
+        .swal-button--danger:focus {
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(165, 43, 43, .29)
+        }
+
+        .swal-content {
+            padding: 0 20px;
+            margin-top: 20px;
+            font-size: medium
+        }
+
+        .swal-content:last-child {
+            margin-bottom: 20px
+        }
+
+        .swal-content__input,
+        .swal-content__textarea {
+            -webkit-appearance: none;
+            background-color: #fff;
+            border: none;
+            font-size: 14px;
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, .14);
+            padding: 10px 13px;
+            border-radius: 2px;
+            transition: border-color .2s
+        }
+
+        .swal-content__input:focus,
+        .swal-content__textarea:focus {
+            outline: none;
+            border-color: #6db8ff
+        }
+
+        .swal-content__textarea {
+            resize: vertical
+        }
+
+        .swal-button--loading {
+            color: transparent
+        }
+
+        .swal-button--loading~.swal-button__loader {
+            opacity: 1
+        }
+
+        .swal-button__loader {
+            position: absolute;
+            height: auto;
+            width: 43px;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+            pointer-events: none;
+            opacity: 0
+        }
+
+        .swal-button__loader div {
+            display: inline-block;
+            float: none;
+            vertical-align: baseline;
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border: none;
+            margin: 2px;
+            opacity: .4;
+            border-radius: 7px;
+            background-color: hsla(0, 0%, 100%, .9);
+            transition: background .2s;
+            -webkit-animation: swal-loading-anim 1s infinite;
+            animation: swal-loading-anim 1s infinite
+        }
+
+        .swal-button__loader div:nth-child(3n+2) {
+            -webkit-animation-delay: .15s;
+            animation-delay: .15s
+        }
+
+        .swal-button__loader div:nth-child(3n+3) {
+            -webkit-animation-delay: .3s;
+            animation-delay: .3s
+        }
+
+        @-webkit-keyframes swal-loading-anim {
+            0% {
+                opacity: .4
+            }
+
+            20% {
+                opacity: .4
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            to {
+                opacity: .4
+            }
+        }
+
+        @keyframes swal-loading-anim {
+            0% {
+                opacity: .4
+            }
+
+            20% {
+                opacity: .4
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            to {
+                opacity: .4
+            }
+        }
+
+        .swal-overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, .4);
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .swal-overlay:before {
+            content: " ";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%
+        }
+
+        .swal-overlay--show-modal {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .swal-overlay--show-modal .swal-modal {
+            opacity: 1;
+            pointer-events: auto;
+            box-sizing: border-box;
+            -webkit-animation: showSweetAlert .3s;
+            animation: showSweetAlert .3s;
+            will-change: transform
+        }
+
+        .swal-modal {
+            width: 478px;
+            opacity: 0;
+            pointer-events: none;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            position: static;
+            margin: 20px auto;
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            z-index: 10001;
+            transition: opacity .2s, -webkit-transform .3s;
+            transition: transform .3s, opacity .2s;
+            transition: transform .3s, opacity .2s, -webkit-transform .3s
+        }
+
+        @media (max-width:500px) {
+            .swal-modal {
+                width: calc(100% - 20px)
+            }
+        }
+
+        @-webkit-keyframes showSweetAlert {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            1% {
+                -webkit-transform: scale(.5);
+                transform: scale(.5)
+            }
+
+            45% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+
+            80% {
+                -webkit-transform: scale(.95);
+                transform: scale(.95)
+            }
+
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @keyframes showSweetAlert {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            1% {
+                -webkit-transform: scale(.5);
+                transform: scale(.5)
+            }
+
+            45% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+
+            80% {
+                -webkit-transform: scale(.95);
+                transform: scale(.95)
+            }
+
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+    <style>
+        .swal2-popup.swal2-toast {
+            box-sizing: border-box;
+            grid-column: 1/4 !important;
+            grid-row: 1/4 !important;
+            grid-template-columns: 1fr 99fr 1fr;
+            padding: 1em;
+            overflow-y: hidden;
+            background: #fff;
+            box-shadow: 0 0 1px hsla(0deg, 0%, 0%, .075), 0 1px 2px hsla(0deg, 0%, 0%, .075), 1px 2px 4px hsla(0deg, 0%, 0%, .075), 1px 3px 8px hsla(0deg, 0%, 0%, .075), 2px 4px 16px hsla(0deg, 0%, 0%, .075);
+            pointer-events: all
+        }
+
+        .swal2-popup.swal2-toast>* {
+            grid-column: 2
+        }
+
+        .swal2-popup.swal2-toast .swal2-title {
+            margin: .5em 1em;
+            padding: 0;
+            font-size: 1em;
+            text-align: initial
+        }
+
+        .swal2-popup.swal2-toast .swal2-loading {
+            justify-content: center
+        }
+
+        .swal2-popup.swal2-toast .swal2-input {
+            height: 2em;
+            margin: .5em;
+            font-size: 1em
+        }
+
+        .swal2-popup.swal2-toast .swal2-validation-message {
+            font-size: 1em
+        }
+
+        .swal2-popup.swal2-toast .swal2-footer {
+            margin: .5em 0 0;
+            padding: .5em 0 0;
+            font-size: .8em
+        }
+
+        .swal2-popup.swal2-toast .swal2-close {
+            grid-column: 3/3;
+            grid-row: 1/99;
+            align-self: center;
+            width: .8em;
+            height: .8em;
+            margin: 0;
+            font-size: 2em
+        }
+
+        .swal2-popup.swal2-toast .swal2-html-container {
+            margin: .5em 1em;
+            padding: 0;
+            font-size: 1em;
+            text-align: initial
+        }
+
+        .swal2-popup.swal2-toast .swal2-html-container:empty {
+            padding: 0
+        }
+
+        .swal2-popup.swal2-toast .swal2-loader {
+            grid-column: 1;
+            grid-row: 1/99;
+            align-self: center;
+            width: 2em;
+            height: 2em;
+            margin: .25em
+        }
+
+        .swal2-popup.swal2-toast .swal2-icon {
+            grid-column: 1;
+            grid-row: 1/99;
+            align-self: center;
+            width: 2em;
+            min-width: 2em;
+            height: 2em;
+            margin: 0 .5em 0 0
+        }
+
+        .swal2-popup.swal2-toast .swal2-icon .swal2-icon-content {
+            display: flex;
+            align-items: center;
+            font-size: 1.8em;
+            font-weight: 700
+        }
+
+        .swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring {
+            width: 2em;
+            height: 2em
+        }
+
+        .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+            top: .875em;
+            width: 1.375em
+        }
+
+        .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left] {
+            left: .3125em
+        }
+
+        .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right] {
+            right: .3125em
+        }
+
+        .swal2-popup.swal2-toast .swal2-actions {
+            justify-content: flex-start;
+            height: auto;
+            margin: 0;
+            margin-top: .5em;
+            padding: 0 .5em
+        }
+
+        .swal2-popup.swal2-toast .swal2-styled {
+            margin: .25em .5em;
+            padding: .4em .6em;
+            font-size: 1em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success {
+            border-color: #a5dc86
+        }
+
+        .swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line] {
+            position: absolute;
+            width: 1.6em;
+            height: 3em;
+            transform: rotate(45deg);
+            border-radius: 50%
+        }
+
+        .swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left] {
+            top: -.8em;
+            left: -.5em;
+            transform: rotate(-45deg);
+            transform-origin: 2em 2em;
+            border-radius: 4em 0 0 4em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right] {
+            top: -.25em;
+            left: .9375em;
+            transform-origin: 0 1.5em;
+            border-radius: 0 4em 4em 0
+        }
+
+        .swal2-popup.swal2-toast .swal2-success .swal2-success-ring {
+            width: 2em;
+            height: 2em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success .swal2-success-fix {
+            top: 0;
+            left: .4375em;
+            width: .4375em;
+            height: 2.6875em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line] {
+            height: .3125em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip] {
+            top: 1.125em;
+            left: .1875em;
+            width: .75em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long] {
+            top: .9375em;
+            right: .1875em;
+            width: 1.375em
+        }
+
+        .swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip {
+            -webkit-animation: swal2-toast-animate-success-line-tip .75s;
+            animation: swal2-toast-animate-success-line-tip .75s
+        }
+
+        .swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long {
+            -webkit-animation: swal2-toast-animate-success-line-long .75s;
+            animation: swal2-toast-animate-success-line-long .75s
+        }
+
+        .swal2-popup.swal2-toast.swal2-show {
+            -webkit-animation: swal2-toast-show .5s;
+            animation: swal2-toast-show .5s
+        }
+
+        .swal2-popup.swal2-toast.swal2-hide {
+            -webkit-animation: swal2-toast-hide .1s forwards;
+            animation: swal2-toast-hide .1s forwards
+        }
+
+        .swal2-container {
+            display: grid;
+            position: fixed;
+            z-index: 1060;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            grid-template-areas: "top-start     top            top-end" "center-start  center         center-end" "bottom-start  bottom-center  bottom-end";
+            grid-template-rows: minmax(-webkit-min-content, auto) minmax(-webkit-min-content, auto) minmax(-webkit-min-content, auto);
+            grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);
+            height: 100%;
+            padding: .625em;
+            overflow-x: hidden;
+            transition: background-color .1s;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .swal2-container.swal2-backdrop-show,
+        .swal2-container.swal2-noanimation {
+            background: rgba(0, 0, 0, .4)
+        }
+
+        .swal2-container.swal2-backdrop-hide {
+            background: 0 0 !important
+        }
+
+        .swal2-container.swal2-bottom-start,
+        .swal2-container.swal2-center-start,
+        .swal2-container.swal2-top-start {
+            grid-template-columns: minmax(0, 1fr) auto auto
+        }
+
+        .swal2-container.swal2-bottom,
+        .swal2-container.swal2-center,
+        .swal2-container.swal2-top {
+            grid-template-columns: auto minmax(0, 1fr) auto
+        }
+
+        .swal2-container.swal2-bottom-end,
+        .swal2-container.swal2-center-end,
+        .swal2-container.swal2-top-end {
+            grid-template-columns: auto auto minmax(0, 1fr)
+        }
+
+        .swal2-container.swal2-top-start>.swal2-popup {
+            align-self: start
+        }
+
+        .swal2-container.swal2-top>.swal2-popup {
+            grid-column: 2;
+            align-self: start;
+            justify-self: center
+        }
+
+        .swal2-container.swal2-top-end>.swal2-popup,
+        .swal2-container.swal2-top-right>.swal2-popup {
+            grid-column: 3;
+            align-self: start;
+            justify-self: end
+        }
+
+        .swal2-container.swal2-center-left>.swal2-popup,
+        .swal2-container.swal2-center-start>.swal2-popup {
+            grid-row: 2;
+            align-self: center
+        }
+
+        .swal2-container.swal2-center>.swal2-popup {
+            grid-column: 2;
+            grid-row: 2;
+            align-self: center;
+            justify-self: center
+        }
+
+        .swal2-container.swal2-center-end>.swal2-popup,
+        .swal2-container.swal2-center-right>.swal2-popup {
+            grid-column: 3;
+            grid-row: 2;
+            align-self: center;
+            justify-self: end
+        }
+
+        .swal2-container.swal2-bottom-left>.swal2-popup,
+        .swal2-container.swal2-bottom-start>.swal2-popup {
+            grid-column: 1;
+            grid-row: 3;
+            align-self: end
+        }
+
+        .swal2-container.swal2-bottom>.swal2-popup {
+            grid-column: 2;
+            grid-row: 3;
+            justify-self: center;
+            align-self: end
+        }
+
+        .swal2-container.swal2-bottom-end>.swal2-popup,
+        .swal2-container.swal2-bottom-right>.swal2-popup {
+            grid-column: 3;
+            grid-row: 3;
+            align-self: end;
+            justify-self: end
+        }
+
+        .swal2-container.swal2-grow-fullscreen>.swal2-popup,
+        .swal2-container.swal2-grow-row>.swal2-popup {
+            grid-column: 1/4;
+            width: 100%
+        }
+
+        .swal2-container.swal2-grow-column>.swal2-popup,
+        .swal2-container.swal2-grow-fullscreen>.swal2-popup {
+            grid-row: 1/4;
+            align-self: stretch
+        }
+
+        .swal2-container.swal2-no-transition {
+            transition: none !important
+        }
+
+        .swal2-popup {
+            display: none;
+            position: relative;
+            box-sizing: border-box;
+            grid-template-columns: minmax(0, 100%);
+            width: 32em;
+            max-width: 100%;
+            padding: 0 0 1.25em;
+            border: none;
+            border-radius: 5px;
+            background: #fff;
+            color: #545454;
+            font-family: inherit;
+            font-size: 1rem
+        }
+
+        .swal2-popup:focus {
+            outline: 0
+        }
+
+        .swal2-popup.swal2-loading {
+            overflow-y: hidden
+        }
+
+        .swal2-title {
+            position: relative;
+            max-width: 100%;
+            margin: 0;
+            padding: .8em 1em 0;
+            color: inherit;
+            font-size: 1.875em;
+            font-weight: 600;
+            text-align: center;
+            text-transform: none;
+            word-wrap: break-word
+        }
+
+        .swal2-actions {
+            display: flex;
+            z-index: 1;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            margin: 1.25em auto 0;
+            padding: 0
+        }
+
+        .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {
+            opacity: .4
+        }
+
+        .swal2-actions:not(.swal2-loading) .swal2-styled:hover {
+            background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1))
+        }
+
+        .swal2-actions:not(.swal2-loading) .swal2-styled:active {
+            background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2))
+        }
+
+        .swal2-loader {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 2.2em;
+            height: 2.2em;
+            margin: 0 1.875em;
+            -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+            animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+            border-width: .25em;
+            border-style: solid;
+            border-radius: 100%;
+            border-color: #2778c4 transparent #2778c4 transparent
+        }
+
+        .swal2-styled {
+            margin: .3125em;
+            padding: .625em 1.1em;
+            transition: box-shadow .1s;
+            box-shadow: 0 0 0 3px transparent;
+            font-weight: 500
+        }
+
+        .swal2-styled:not([disabled]) {
+            cursor: pointer
+        }
+
+        .swal2-styled.swal2-confirm {
+            border: 0;
+            border-radius: .25em;
+            background: initial;
+            background-color: #7066e0;
+            color: #fff;
+            font-size: 1em
+        }
+
+        .swal2-styled.swal2-confirm:focus {
+            box-shadow: 0 0 0 3px rgba(112, 102, 224, .5)
+        }
+
+        .swal2-styled.swal2-deny {
+            border: 0;
+            border-radius: .25em;
+            background: initial;
+            background-color: #dc3741;
+            color: #fff;
+            font-size: 1em
+        }
+
+        .swal2-styled.swal2-deny:focus {
+            box-shadow: 0 0 0 3px rgba(220, 55, 65, .5)
+        }
+
+        .swal2-styled.swal2-cancel {
+            border: 0;
+            border-radius: .25em;
+            background: initial;
+            background-color: #6e7881;
+            color: #fff;
+            font-size: 1em
+        }
+
+        .swal2-styled.swal2-cancel:focus {
+            box-shadow: 0 0 0 3px rgba(110, 120, 129, .5)
+        }
+
+        .swal2-styled.swal2-default-outline:focus {
+            box-shadow: 0 0 0 3px rgba(100, 150, 200, .5)
+        }
+
+        .swal2-styled:focus {
+            outline: 0
+        }
+
+        .swal2-styled::-moz-focus-inner {
+            border: 0
+        }
+
+        .swal2-footer {
+            justify-content: center;
+            margin: 1em 0 0;
+            padding: 1em 1em 0;
+            border-top: 1px solid #eee;
+            color: inherit;
+            font-size: 1em
+        }
+
+        .swal2-timer-progress-bar-container {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            grid-column: auto !important;
+            overflow: hidden;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px
+        }
+
+        .swal2-timer-progress-bar {
+            width: 100%;
+            height: .25em;
+            background: rgba(0, 0, 0, .2)
+        }
+
+        .swal2-image {
+            max-width: 100%;
+            margin: 2em auto 1em
+        }
+
+        .swal2-close {
+            z-index: 2;
+            align-items: center;
+            justify-content: center;
+            width: 1.2em;
+            height: 1.2em;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: -1.2em;
+            padding: 0;
+            overflow: hidden;
+            transition: color .1s, box-shadow .1s;
+            border: none;
+            border-radius: 5px;
+            background: 0 0;
+            color: #ccc;
+            font-family: serif;
+            font-family: monospace;
+            font-size: 2.5em;
+            cursor: pointer;
+            justify-self: end
+        }
+
+        .swal2-close:hover {
+            transform: none;
+            background: 0 0;
+            color: #f27474
+        }
+
+        .swal2-close:focus {
+            outline: 0;
+            box-shadow: inset 0 0 0 3px rgba(100, 150, 200, .5)
+        }
+
+        .swal2-close::-moz-focus-inner {
+            border: 0
+        }
+
+        .swal2-html-container {
+            z-index: 1;
+            justify-content: center;
+            margin: 1em 1.6em .3em;
+            padding: 0;
+            overflow: auto;
+            color: inherit;
+            font-size: 1.125em;
+            font-weight: 400;
+            line-height: normal;
+            text-align: center;
+            word-wrap: break-word;
+            word-break: break-word
+        }
+
+        .swal2-checkbox,
+        .swal2-file,
+        .swal2-input,
+        .swal2-radio,
+        .swal2-select,
+        .swal2-textarea {
+            margin: 1em 2em 3px
+        }
+
+        .swal2-file,
+        .swal2-input,
+        .swal2-textarea {
+            box-sizing: border-box;
+            width: auto;
+            transition: border-color .1s, box-shadow .1s;
+            border: 1px solid #d9d9d9;
+            border-radius: .1875em;
+            background: 0 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .06), 0 0 0 3px transparent;
+            color: inherit;
+            font-size: 1.125em
+        }
+
+        .swal2-file.swal2-inputerror,
+        .swal2-input.swal2-inputerror,
+        .swal2-textarea.swal2-inputerror {
+            border-color: #f27474 !important;
+            box-shadow: 0 0 2px #f27474 !important
+        }
+
+        .swal2-file:focus,
+        .swal2-input:focus,
+        .swal2-textarea:focus {
+            border: 1px solid #b4dbed;
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .06), 0 0 0 3px rgba(100, 150, 200, .5)
+        }
+
+        .swal2-file::-moz-placeholder,
+        .swal2-input::-moz-placeholder,
+        .swal2-textarea::-moz-placeholder {
+            color: #ccc
+        }
+
+        .swal2-file:-ms-input-placeholder,
+        .swal2-input:-ms-input-placeholder,
+        .swal2-textarea:-ms-input-placeholder {
+            color: #ccc
+        }
+
+        .swal2-file::placeholder,
+        .swal2-input::placeholder,
+        .swal2-textarea::placeholder {
+            color: #ccc
+        }
+
+        .swal2-range {
+            margin: 1em 2em 3px;
+            background: #fff
+        }
+
+        .swal2-range input {
+            width: 80%
+        }
+
+        .swal2-range output {
+            width: 20%;
+            color: inherit;
+            font-weight: 600;
+            text-align: center
+        }
+
+        .swal2-range input,
+        .swal2-range output {
+            height: 2.625em;
+            padding: 0;
+            font-size: 1.125em;
+            line-height: 2.625em
+        }
+
+        .swal2-input {
+            height: 2.625em;
+            padding: 0 .75em
+        }
+
+        .swal2-file {
+            width: 75%;
+            margin-right: auto;
+            margin-left: auto;
+            background: 0 0;
+            font-size: 1.125em
+        }
+
+        .swal2-textarea {
+            height: 6.75em;
+            padding: .75em
+        }
+
+        .swal2-select {
+            min-width: 50%;
+            max-width: 100%;
+            padding: .375em .625em;
+            background: 0 0;
+            color: inherit;
+            font-size: 1.125em
+        }
+
+        .swal2-checkbox,
+        .swal2-radio {
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: inherit
+        }
+
+        .swal2-checkbox label,
+        .swal2-radio label {
+            margin: 0 .6em;
+            font-size: 1.125em
+        }
+
+        .swal2-checkbox input,
+        .swal2-radio input {
+            flex-shrink: 0;
+            margin: 0 .4em
+        }
+
+        .swal2-input-label {
+            display: flex;
+            justify-content: center;
+            margin: 1em auto 0
+        }
+
+        .swal2-validation-message {
+            align-items: center;
+            justify-content: center;
+            margin: 1em 0 0;
+            padding: .625em;
+            overflow: hidden;
+            background: #f0f0f0;
+            color: #666;
+            font-size: 1em;
+            font-weight: 300
+        }
+
+        .swal2-validation-message::before {
+            content: "!";
+            display: inline-block;
+            width: 1.5em;
+            min-width: 1.5em;
+            height: 1.5em;
+            margin: 0 .625em;
+            border-radius: 50%;
+            background-color: #f27474;
+            color: #fff;
+            font-weight: 600;
+            line-height: 1.5em;
+            text-align: center
+        }
+
+        .swal2-icon {
+            position: relative;
+            box-sizing: content-box;
+            justify-content: center;
+            width: 5em;
+            height: 5em;
+            margin: 2.5em auto .6em;
+            border: .25em solid transparent;
+            border-radius: 50%;
+            border-color: #000;
+            font-family: inherit;
+            line-height: 5em;
+            cursor: default;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        .swal2-icon .swal2-icon-content {
+            display: flex;
+            align-items: center;
+            font-size: 3.75em
+        }
+
+        .swal2-icon.swal2-error {
+            border-color: #f27474;
+            color: #f27474
+        }
+
+        .swal2-icon.swal2-error .swal2-x-mark {
+            position: relative;
+            flex-grow: 1
+        }
+
+        .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+            display: block;
+            position: absolute;
+            top: 2.3125em;
+            width: 2.9375em;
+            height: .3125em;
+            border-radius: .125em;
+            background-color: #f27474
+        }
+
+        .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left] {
+            left: 1.0625em;
+            transform: rotate(45deg)
+        }
+
+        .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right] {
+            right: 1em;
+            transform: rotate(-45deg)
+        }
+
+        .swal2-icon.swal2-error.swal2-icon-show {
+            -webkit-animation: swal2-animate-error-icon .5s;
+            animation: swal2-animate-error-icon .5s
+        }
+
+        .swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark {
+            -webkit-animation: swal2-animate-error-x-mark .5s;
+            animation: swal2-animate-error-x-mark .5s
+        }
+
+        .swal2-icon.swal2-warning {
+            border-color: #facea8;
+            color: #f8bb86
+        }
+
+        .swal2-icon.swal2-warning.swal2-icon-show {
+            -webkit-animation: swal2-animate-error-icon .5s;
+            animation: swal2-animate-error-icon .5s
+        }
+
+        .swal2-icon.swal2-warning.swal2-icon-show .swal2-icon-content {
+            -webkit-animation: swal2-animate-i-mark .5s;
+            animation: swal2-animate-i-mark .5s
+        }
+
+        .swal2-icon.swal2-info {
+            border-color: #9de0f6;
+            color: #3fc3ee
+        }
+
+        .swal2-icon.swal2-info.swal2-icon-show {
+            -webkit-animation: swal2-animate-error-icon .5s;
+            animation: swal2-animate-error-icon .5s
+        }
+
+        .swal2-icon.swal2-info.swal2-icon-show .swal2-icon-content {
+            -webkit-animation: swal2-animate-i-mark .8s;
+            animation: swal2-animate-i-mark .8s
+        }
+
+        .swal2-icon.swal2-question {
+            border-color: #c9dae1;
+            color: #87adbd
+        }
+
+        .swal2-icon.swal2-question.swal2-icon-show {
+            -webkit-animation: swal2-animate-error-icon .5s;
+            animation: swal2-animate-error-icon .5s
+        }
+
+        .swal2-icon.swal2-question.swal2-icon-show .swal2-icon-content {
+            -webkit-animation: swal2-animate-question-mark .8s;
+            animation: swal2-animate-question-mark .8s
+        }
+
+        .swal2-icon.swal2-success {
+            border-color: #a5dc86;
+            color: #a5dc86
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-circular-line] {
+            position: absolute;
+            width: 3.75em;
+            height: 7.5em;
+            transform: rotate(45deg);
+            border-radius: 50%
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left] {
+            top: -.4375em;
+            left: -2.0635em;
+            transform: rotate(-45deg);
+            transform-origin: 3.75em 3.75em;
+            border-radius: 7.5em 0 0 7.5em
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right] {
+            top: -.6875em;
+            left: 1.875em;
+            transform: rotate(-45deg);
+            transform-origin: 0 3.75em;
+            border-radius: 0 7.5em 7.5em 0
+        }
+
+        .swal2-icon.swal2-success .swal2-success-ring {
+            position: absolute;
+            z-index: 2;
+            top: -.25em;
+            left: -.25em;
+            box-sizing: content-box;
+            width: 100%;
+            height: 100%;
+            border: .25em solid rgba(165, 220, 134, .3);
+            border-radius: 50%
+        }
+
+        .swal2-icon.swal2-success .swal2-success-fix {
+            position: absolute;
+            z-index: 1;
+            top: .5em;
+            left: 1.625em;
+            width: .4375em;
+            height: 5.625em;
+            transform: rotate(-45deg)
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-line] {
+            display: block;
+            position: absolute;
+            z-index: 2;
+            height: .3125em;
+            border-radius: .125em;
+            background-color: #a5dc86
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
+            top: 2.875em;
+            left: .8125em;
+            width: 1.5625em;
+            transform: rotate(45deg)
+        }
+
+        .swal2-icon.swal2-success [class^=swal2-success-line][class$=long] {
+            top: 2.375em;
+            right: .5em;
+            width: 2.9375em;
+            transform: rotate(-45deg)
+        }
+
+        .swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip {
+            -webkit-animation: swal2-animate-success-line-tip .75s;
+            animation: swal2-animate-success-line-tip .75s
+        }
+
+        .swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long {
+            -webkit-animation: swal2-animate-success-line-long .75s;
+            animation: swal2-animate-success-line-long .75s
+        }
+
+        .swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right {
+            -webkit-animation: swal2-rotate-success-circular-line 4.25s ease-in;
+            animation: swal2-rotate-success-circular-line 4.25s ease-in
+        }
+
+        .swal2-progress-steps {
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 100%;
+            margin: 1.25em auto;
+            padding: 0;
+            background: 0 0;
+            font-weight: 600
+        }
+
+        .swal2-progress-steps li {
+            display: inline-block;
+            position: relative
+        }
+
+        .swal2-progress-steps .swal2-progress-step {
+            z-index: 20;
+            flex-shrink: 0;
+            width: 2em;
+            height: 2em;
+            border-radius: 2em;
+            background: #2778c4;
+            color: #fff;
+            line-height: 2em;
+            text-align: center
+        }
+
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
+            background: #2778c4
+        }
+
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step {
+            background: #add8e6;
+            color: #fff
+        }
+
+        .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line {
+            background: #add8e6
+        }
+
+        .swal2-progress-steps .swal2-progress-step-line {
+            z-index: 10;
+            flex-shrink: 0;
+            width: 2.5em;
+            height: .4em;
+            margin: 0 -1px;
+            background: #2778c4
+        }
+
+        [class^=swal2] {
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .swal2-show {
+            -webkit-animation: swal2-show .3s;
+            animation: swal2-show .3s
+        }
+
+        .swal2-hide {
+            -webkit-animation: swal2-hide .15s forwards;
+            animation: swal2-hide .15s forwards
+        }
+
+        .swal2-noanimation {
+            transition: none
+        }
+
+        .swal2-scrollbar-measure {
+            position: absolute;
+            top: -9999px;
+            width: 50px;
+            height: 50px;
+            overflow: scroll
+        }
+
+        .swal2-rtl .swal2-close {
+            margin-right: initial;
+            margin-left: 0
+        }
+
+        .swal2-rtl .swal2-timer-progress-bar {
+            right: 0;
+            left: auto
+        }
+
+        .swal2-no-war {
+            display: flex;
+            position: fixed;
+            z-index: 1061;
+            top: 0;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 3.375em;
+            background: #20232a;
+            color: #fff;
+            text-align: center
+        }
+
+        .swal2-no-war a {
+            color: #61dafb;
+            text-decoration: none
+        }
+
+        .swal2-no-war a:hover {
+            text-decoration: underline
+        }
+
+        @-webkit-keyframes swal2-toast-show {
+            0% {
+                transform: translateY(-.625em) rotateZ(2deg)
+            }
+
+            33% {
+                transform: translateY(0) rotateZ(-2deg)
+            }
+
+            66% {
+                transform: translateY(.3125em) rotateZ(2deg)
+            }
+
+            100% {
+                transform: translateY(0) rotateZ(0)
+            }
+        }
+
+        @keyframes swal2-toast-show {
+            0% {
+                transform: translateY(-.625em) rotateZ(2deg)
+            }
+
+            33% {
+                transform: translateY(0) rotateZ(-2deg)
+            }
+
+            66% {
+                transform: translateY(.3125em) rotateZ(2deg)
+            }
+
+            100% {
+                transform: translateY(0) rotateZ(0)
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-hide {
+            100% {
+                transform: rotateZ(1deg);
+                opacity: 0
+            }
+        }
+
+        @keyframes swal2-toast-hide {
+            100% {
+                transform: rotateZ(1deg);
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-animate-success-line-tip {
+            0% {
+                top: .5625em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: .125em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: .625em;
+                left: -.25em;
+                width: 1.625em
+            }
+
+            84% {
+                top: 1.0625em;
+                left: .75em;
+                width: .5em
+            }
+
+            100% {
+                top: 1.125em;
+                left: .1875em;
+                width: .75em
+            }
+        }
+
+        @keyframes swal2-toast-animate-success-line-tip {
+            0% {
+                top: .5625em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: .125em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: .625em;
+                left: -.25em;
+                width: 1.625em
+            }
+
+            84% {
+                top: 1.0625em;
+                left: .75em;
+                width: .5em
+            }
+
+            100% {
+                top: 1.125em;
+                left: .1875em;
+                width: .75em
+            }
+        }
+
+        @-webkit-keyframes swal2-toast-animate-success-line-long {
+            0% {
+                top: 1.625em;
+                right: 1.375em;
+                width: 0
+            }
+
+            65% {
+                top: 1.25em;
+                right: .9375em;
+                width: 0
+            }
+
+            84% {
+                top: .9375em;
+                right: 0;
+                width: 1.125em
+            }
+
+            100% {
+                top: .9375em;
+                right: .1875em;
+                width: 1.375em
+            }
+        }
+
+        @keyframes swal2-toast-animate-success-line-long {
+            0% {
+                top: 1.625em;
+                right: 1.375em;
+                width: 0
+            }
+
+            65% {
+                top: 1.25em;
+                right: .9375em;
+                width: 0
+            }
+
+            84% {
+                top: .9375em;
+                right: 0;
+                width: 1.125em
+            }
+
+            100% {
+                top: .9375em;
+                right: .1875em;
+                width: 1.375em
+            }
+        }
+
+        @-webkit-keyframes swal2-show {
+            0% {
+                transform: scale(.7)
+            }
+
+            45% {
+                transform: scale(1.05)
+            }
+
+            80% {
+                transform: scale(.95)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @keyframes swal2-show {
+            0% {
+                transform: scale(.7)
+            }
+
+            45% {
+                transform: scale(1.05)
+            }
+
+            80% {
+                transform: scale(.95)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes swal2-hide {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(.5);
+                opacity: 0
+            }
+        }
+
+        @keyframes swal2-hide {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(.5);
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .8125em;
+                width: 1.5625em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-tip {
+            0% {
+                top: 1.1875em;
+                left: .0625em;
+                width: 0
+            }
+
+            54% {
+                top: 1.0625em;
+                left: .125em;
+                width: 0
+            }
+
+            70% {
+                top: 2.1875em;
+                left: -.375em;
+                width: 3.125em
+            }
+
+            84% {
+                top: 3em;
+                left: 1.3125em;
+                width: 1.0625em
+            }
+
+            100% {
+                top: 2.8125em;
+                left: .8125em;
+                width: 1.5625em
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        @keyframes swal2-animate-success-line-long {
+            0% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            65% {
+                top: 3.375em;
+                right: 2.875em;
+                width: 0
+            }
+
+            84% {
+                top: 2.1875em;
+                right: 0;
+                width: 3.4375em
+            }
+
+            100% {
+                top: 2.375em;
+                right: .5em;
+                width: 2.9375em
+            }
+        }
+
+        @-webkit-keyframes swal2-rotate-success-circular-line {
+            0% {
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                transform: rotate(-405deg)
+            }
+
+            100% {
+                transform: rotate(-405deg)
+            }
+        }
+
+        @keyframes swal2-rotate-success-circular-line {
+            0% {
+                transform: rotate(-45deg)
+            }
+
+            5% {
+                transform: rotate(-45deg)
+            }
+
+            12% {
+                transform: rotate(-405deg)
+            }
+
+            100% {
+                transform: rotate(-405deg)
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-error-x-mark {
+            0% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            50% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            80% {
+                margin-top: -.375em;
+                transform: scale(1.15)
+            }
+
+            100% {
+                margin-top: 0;
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-error-x-mark {
+            0% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            50% {
+                margin-top: 1.625em;
+                transform: scale(.4);
+                opacity: 0
+            }
+
+            80% {
+                margin-top: -.375em;
+                transform: scale(1.15)
+            }
+
+            100% {
+                margin-top: 0;
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-error-icon {
+            0% {
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-error-icon {
+            0% {
+                transform: rotateX(100deg);
+                opacity: 0
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes swal2-rotate-loading {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes swal2-rotate-loading {
+            0% {
+                transform: rotate(0)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-question-mark {
+            0% {
+                transform: rotateY(-360deg)
+            }
+
+            100% {
+                transform: rotateY(0)
+            }
+        }
+
+        @keyframes swal2-animate-question-mark {
+            0% {
+                transform: rotateY(-360deg)
+            }
+
+            100% {
+                transform: rotateY(0)
+            }
+        }
+
+        @-webkit-keyframes swal2-animate-i-mark {
+            0% {
+                transform: rotateZ(45deg);
+                opacity: 0
+            }
+
+            25% {
+                transform: rotateZ(-25deg);
+                opacity: .4
+            }
+
+            50% {
+                transform: rotateZ(15deg);
+                opacity: .8
+            }
+
+            75% {
+                transform: rotateZ(-5deg);
+                opacity: 1
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes swal2-animate-i-mark {
+            0% {
+                transform: rotateZ(45deg);
+                opacity: 0
+            }
+
+            25% {
+                transform: rotateZ(-25deg);
+                opacity: .4
+            }
+
+            50% {
+                transform: rotateZ(15deg);
+                opacity: .8
+            }
+
+            75% {
+                transform: rotateZ(-5deg);
+                opacity: 1
+            }
+
+            100% {
+                transform: rotateX(0);
+                opacity: 1
+            }
+        }
+
+        body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+            overflow: hidden
+        }
+
+        body.swal2-height-auto {
+            height: auto !important
+        }
+
+        body.swal2-no-backdrop .swal2-container {
+            background-color: transparent !important;
+            pointer-events: none
+        }
+
+        body.swal2-no-backdrop .swal2-container .swal2-popup {
+            pointer-events: all
+        }
+
+        body.swal2-no-backdrop .swal2-container .swal2-modal {
+            box-shadow: 0 0 10px rgba(0, 0, 0, .4)
+        }
+
+        @media print {
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+                overflow-y: scroll !important
+            }
+
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true] {
+                display: none
+            }
+
+            body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container {
+                position: static !important
+            }
+        }
+
+        body.swal2-toast-shown .swal2-container {
+            box-sizing: border-box;
+            width: 360px;
+            max-width: 100%;
+            background-color: transparent;
+            pointer-events: none
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-top {
+            top: 0;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-top-end,
+        body.swal2-toast-shown .swal2-container.swal2-top-right {
+            top: 0;
+            right: 0;
+            bottom: auto;
+            left: auto
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-top-left,
+        body.swal2-toast-shown .swal2-container.swal2-top-start {
+            top: 0;
+            right: auto;
+            bottom: auto;
+            left: 0
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-center-left,
+        body.swal2-toast-shown .swal2-container.swal2-center-start {
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            left: 0;
+            transform: translateY(-50%)
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-center {
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-center-end,
+        body.swal2-toast-shown .swal2-container.swal2-center-right {
+            top: 50%;
+            right: 0;
+            bottom: auto;
+            left: auto;
+            transform: translateY(-50%)
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-bottom-left,
+        body.swal2-toast-shown .swal2-container.swal2-bottom-start {
+            top: auto;
+            right: auto;
+            bottom: 0;
+            left: 0
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-bottom {
+            top: auto;
+            right: auto;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        body.swal2-toast-shown .swal2-container.swal2-bottom-end,
+        body.swal2-toast-shown .swal2-container.swal2-bottom-right {
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: auto
+        }
+    </style>
+    <!-- Fav  -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet">
+    <!-- Style for Dialog Box -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css">
+
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+
+
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDAyIDc5LjE2NDM1MiwgMjAyMC8wMS8zMC0xNTo1MDozOCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkIyRkFBNzE1MzEyNTExRUQ4NkFBRjE2MTI3NjdFNDRCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkIyRkFBNzE2MzEyNTExRUQ4NkFBRjE2MTI3NjdFNDRCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjJGQUE3MTMzMTI1MTFFRDg2QUFGMTYxMjc2N0U0NEIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjJGQUE3MTQzMTI1MTFFRDg2QUFGMTYxMjc2N0U0NEIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4c0FRlAAAIMklEQVR42pRXC2yVZxl+/uv5z61rC5TODghMoEwcnfQSGK6aIcuC0mjZso04mQtkXkAzNW7qZjYlKjqnLtlFh9lwAxRwDjZZ0Myo4GTFbRSkgxYYdLT0xunp5Zzz332+7xyotadT/+Rrv+t7ed7nfb/vKGEYQnwbH8O4T+G0WFHYQv5xDfYVfEgLcB3nr+b0NDadbTBQ0am7+Kdt4ZASYJB9eUbI0Px8/9L3sw35/zr+l09BmRriE7RkOe1s4My8ccsB+ij8TdXHnzl8mfuP/DeR+nvrw/vpzTco9C7FH5ssfF1sYraMiqdxzwp6uoJObuKe19k2c233ZLLVSx2B+L+3QMGtbO3s34VA6tvO/ip2LTWQKFZxPJP/k1xUqLyOiGxiO0cj69l2cW6viJcSjLUJHgfCBG7yjXxf95DVXJzjeKvu4IFAo5U8GIT0LsBCGnNlwfs+huFtcuAwBR9m/1vsr6T3j/oqwmw8D1KgTAJ1JpknQSRLBZ5UvtfXsVcNJUmWUNEGdpsoPHaJfKIhj44443JtD888zamXeV7EGiQcBNm0cBLFQyV5T6engPgwx6WAZ+IjJUO0XEPNZZhCvEWPjuo+LghZVFRBZBYSjcU0vFlz0KwqOBHo+LKVxSseN0UzQMXIeHZfVixorxTyR8BtOnjCsnFPkI/5EU7/hOvPiHhzGa5WOOcVUo9GM663cN9XiUC9bmMft/6KW+4Ua0JpUcUCLlqPUAgM8HemRgMFhXYcaxnvraovvS2ljtX0sMEPMZtjg573EKmjPLuHyOw0A+wk15t4dhvnP614qGG4FlO3W5RcLA6IEQ7VRkskg1oKaktNxQ2Gi37GaBHPbKLSlWGBiFohvTxVku4WPYuHVQ1nXRPfpe1Pu3HEY2m0RIdRm0uiddDCglykiGKDkMVSeDZ5EbVnrkabY+GaygsSyu+FPu6TcAFpTcFWIvIXGtLBOYfeTKchdUSsmQbWmx5+wa3rmAXLTs1HneLiUPVx1HddiRczV6BpQh7PasNt8X7caTnwD6zE4hdvAyrPYidhva9QVb/C+Jcynhs53MW5twjjcSr7k2NgMxFqoBHX05gjQYD6ZB9SuQSmdFWz0gXITO3DqmvacfdEVhu4V+ZxFE1LDyE7HOCJTBSrzQwu0rolFHLSZzgCHx+gd2u4dxmPVRKoNInUQh5sY+ocoOKaZAbP2BF8puYg2oenobx7Jq4v7cOb/Rq+xDNbxscYuJ1xmzdqYN+sf2CFNYJ7BioQDlRh4ZnZ6F70OpAYxlOEeL3I7VAbq3iGjVoy9nNGBvudEjS33IC1c1pRFuvGqrSJl1oa8fHFB3HzrA6cnQA1Y3xqOIl9/VPBwGH7MCtOfATNtLj7nWquZ/CalsN6kWpeFA+R5bNF6fQMRN0I1lLxu0YWK7RRdPZXosSuQBPnBys7sbLx96il0a9kE2gbu/0KAdzwA1YZU1b9T1lp7NZ0HA4N1EVzzOksnk9buAMmTqSjqGeVGirNQGVKLaPnaSo4IjIliGFXdADNhLojOwVzbY+Ec7CLCP1x1MTHhKYt3/zPPM7lyyXJ84CAcWQID1rcmTOxkLG+w83BjiqoYVBzgxn83I9jXejLogE9gwxjvmYgjtWGhjeo5Dp9FDfx/G5PE7TAcq+HNYB39QSoo6IiBbiKm2ro9kgygn2hJ6vNIzrN8wPc63QjR0XP6hbWRQi5puJBAvZLChH1+4UZJ1EVy+FGj/udEI96lEnj9gj55eVYMq28yLWYGqCXo2jUFFlMfptjYR92kRD3rJOlXgePa1NQNcoSGFFhdxxDeTqFHyo27g6yuF0YN2Rh+0gOKSNEmiIXyBLp41VRZmnEDK/YfWwwvoxrtcCFkwfEFWgZuFkRV2SI503Cb7t4SMnfr5+1IkipKq9OA6c8FzsYiiEi8GF5uwZoEcrCfO3vLfSjflikckUsCescQgrfxekIDYlEsczNX2kvRC1ZKm91HCBrY9tVM7DOFZ64eE6cYSrKghjm4Z0hSrC8vwNMgSY9zyrFPC4tl8rnBq40J+PlDZgvPKTgo64nx0nKOC+MytlYL9Dh3LctEzfpGiIUvFlATqLNp5y0MIiI3ShfMAo6FaWI4t/tBE4cw29Kkngt3cN8s+Viuahm2VH0+x4SIv6ujTY7K4lVzdhDIMAwfYEGgDy4n/2vC6/h4WHPlqI/KdhvZ/C3XKaI4lZWpndO4kfxGJbC4RNVk+UxENbG4tBNHTaVwzRQcUWJ9Cot9nAvciMINE3GLcwO4jylHlMi+DEVNhFihXv305h04BdRLD4rmidE6fRC9AP0COsZq5mhA7dAkmv7+yUKfzB0GZ5KXoePCzSoYj9j+hwR+SCXZibi2C6QoOL7owk6kJhEsaJJZkMQKjcqifF2wWNZdQjXq5oqyTaHZnxHvvhV7Ej1Yv/QRT6HTCyPxDDMdDpIlp+1HUSZDdsSKt6IUKbpTaLYJ2yd7cCFc0Dvu8BAD14icdDVjarzvfI+/mnAw8kEdsSiOE2mt0YjaIwnsJnsvpbQ/pqGJmjcUm72KO/7MRNrSvl+S/IxSf4Uf9CL8vc+/jCJqJevrL/ywKItT6JDHP78F7HnfBd6CUJdLoc5R1tRN3cehhIJfI0oNY4MosGIYINhQNSo074PN8xnhXgWF3/Qy4GWj7MZGWs80GrFkBGEIgIghB/VFWwcSaG37Rgcz8MCetfOENeXlaHCNNHHEJ0Q70Eo/8dPmCCf9ON+rgjGCqtHmQ704jinO1wHTowVmtXrDAn4GJXPZkYMhRlZVADtvX87/UuAAQDcdL1KeJHl/wAAAABJRU5ErkJggg==">
+
+
+
+
+    <title>
+        VERIFICATION
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://edistrict.up.gov.in/edistrictup/jsR/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <link rel="icon" href="https://edistrict.up.gov.in/edistrictup/favicon.ico">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/main.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/bootstrap-responsive.min.css" type="text/css"
+        rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/Sliderstyle.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/animate.min.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/Stylesheet.css" type="text/css" rel="stylesheet"
+        media="all">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/StyleSheet2.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/StyleSheet3.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/main.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/sl-slide.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="https://edistrict.up.gov.in/edistrictup/cssR/NStyle.css" type="text/css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"
+        rel="stylesheet">
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/jsR/vendor/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://edistrict.up.gov.in/edistrictup/jsR/vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/jsR/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/ChartsR/FusionCharts.js"></script>
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/jsR/main.js"></script>
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/jsR/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/jsR/jquery.slitslider.js"></script>
+    <script type="text/javascript" src="https://edistrict.up.gov.in/edistrictup/jsR/froogaloop2.min.js"></script>
+
+    <style type="text/css">
+        #divLoading {
+            display: none;
+        }
+
+        #divLoading.show {
+            display: block;
+            position: fixed;
+            z-index: 100;
+            background-image: url('https://edistrict.up.gov.in/edistrictup/imagesR/loading-animation.gif');
+            background-size: 300px 300px;
+            background-color: #000;
+            opacity: 0.25;
+            background-repeat: no-repeat;
+            background-position: center;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+        }
+    </style>
+
+
+    <style type="text/css">
+        .reportlabel {
+            border-top: #000000 1px solid !important;
+            font-size: 10pt !important;
+            font-family: verdana !important;
+            text-align: left !important;
+        }
+
+        .style1 {
+            border-top: #000000 1px solid !important;
+            font-size: large !important;
+            font-family: verdana !important;
+            text-align: left !important;
+        }
+
+        .style2 {
+            font-size: large !important;
+            color: #993333 !important;
+        }
+
+        .style3 {
+            font-family: "Arial Unicode MS" !important;
+            font-size: 20px !important;
+        }
+
+        .style4 {
+            width: 17% !important;
+            height: 34px !important;
+        }
+
+        .style5 {
+            height: 34px !important;
+        }
+
+        .style6 {
+            color: white !important;
+            height: 32px !important;
+        }
+
+        .style7 {
+            color: #663300 !important;
+        }
+
+        .control {}
+
+        .style8 {
+            height: 22px !important;
+        }
+
+        .style9 {
+            width: 17% !important;
+            height: 37px !important;
+        }
+
+        .style10 {
+            height: 37px !important;
+        }
+
+        .navi {
+            position: absolute;
+            top: 10%;
+            color: white;
+            right: 10%;
+        }
+
+
+
+        .tableWidth {
+            width: 74%;
+        }
+
+        .objectHeight1 {
+            height: 120px;
+        }
+
+        .objectHeight2 {
+            height: 130;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .tableWidth {
+                width: 100%;
+            }
+
+            .objectHeight1 {
+                height: 120px;
+            }
+
+            .objectHeight2 {
+                height: 260px;
+            }
+
+            .navi {
+                position: absolute;
+                top: 6.5%;
+                color: white;
+                right: 5%;
+            }
+        }
+    </style>
+
+
+
+    <style type="text/css">
+        .Ncontainer {
+
+            overflow: hidden !important;
+        }
+    </style>
+</head>
+
+<body style="background: url('https://edistrict.up.gov.in/edistrictup/imagesR/1.png') #e5e5e5;">
+    <div class="container" style="margin-top: -22px;">
+        <div style="height: 29px;">
+        </div>
+    </div>
+    <header id="head1" class="navbar navbar-fixed-top NHeader Nhidden-xs">
+        <div class="Ncontainer">
+            <div class="Ncontainer">
+                <div class="row">
+                    <div class="Ncol-sm-2 Ncol-md-2 Ncol-lg-2">
+                        <img src="https://edistrict.up.gov.in/edistrictup/imagesR/logo6.png" alt="eDistrict logo"
+                            style="height: 55px;margin-top:10px;width: 150px;top:0px;">
+                    </div>
+                    <div class="Ncol-sm-9 Ncol-md-9 Ncol-lg-9">
+                        <div class="row NHeaderRow">
+                            <div class="top-bar-link Ncol-sm-12">
+                            </div>
+                        </div>
+                        <div class="row" style="height:5px;"></div>
+                        <div class="row NHeaderRow">
+                            <div class="navbar">
+                                <div class="" style="float: left; display: inline; width: 100%; ">
+                                    <div class="" style="padding-top: 0px; margin-top: -45px;margin-right:-30px;">
+                                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse1">
+                                            <span class="icon-bar"></span><span class="icon-bar"></span><span
+                                                class="icon-bar"></span>
+                                        </a>
+                                        <div class="nav-collapse1 collapse"
+                                            style="margin: 0px; font-weight: bold; font-size: 12px; top: 0px; left: 0px;">
+                                            <ul class="nav" style="margin-top:30px;">
+                                                <li class=""><a
+                                                        href="https://edistrict.up.gov.in/edistrictup/Index2.aspx"
+                                                        target="_blank" class="menuLink">मुख्य पृष्ठ </a></li>
+                                                <li style=""><a
+                                                        href="https://edistrict.up.gov.in/eDistrictup/Services/services_hi.aspx"
+                                                        class="menuLink" target="_blank">सेवाएं </a></li>
+                                                <li style=""><a
+                                                        href="https://edistrict.up.gov.in/edistrict/Centre_Det.aspx"
+                                                        target="_blank" class="menuLink" ;="">सेवाकेन्द्र </a></li>
+                                                <li style=""><a href="https://eSathi.up.gov.in/pmed/login/login.aspx"
+                                                        class="menuLink" target="_blank" ;="">प्रोग्रेस मॉनिटरिंग </a>
+                                                </li>
+                                                <li><a href="https://eSathi.up.gov.in/ssdgsap/WLogin/Login.aspx"
+                                                        class="menuLink" target="_blank" ;="">वित्तीय प्रबंधन</a></li>
+                                                <li style=""><a
+                                                        href="https://edistrict.up.gov.in/eDistrictup/FooterLinks/DeptRegProcess.aspx"
+                                                        class="menuLink" target="_blank" ;="">विभागीय एकीकरण </a></li>
+                                                <li style=""><a
+                                                        href="https://edistrict.up.gov.in/eDistrictup/FooterLinks/contactus.aspx"
+                                                        class="menuLink" target="_blank" ;="">संपर्क करें </a></li>
+                                                <!--  <li> <img  id="Img1" src="https://edistrict.up.gov.in/edistrictup/imagesR/close-icon-png.png"  onclick="javascript:window.close();" style="height: 28px; width: 31px;"
+                                title="Close" alt="Close" /></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="navbar navbar-fixed-top Nhidden-sm Nhidden-md Nhidden-lg">
+        <div id="Div1" class="navbar-inner">
+            <div class="container" style="padding:0px;margin-right: 50px;">
+                <div>
+                    <img src="https://edistrict.up.gov.in/edistrictup/imagesR/logo6.png" alt="eDistrict logo"
+                        style="height: 57px;width: 151px;margin-left:50px;">
+                    <div class="Nhidden-xs navbar">
+                        <div class="" style="float: left; display: inline; width: 100%; ">
+                            <div class="container" style="padding-top: 0px;    margin-top: -40px;">
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse1">
+                                    <span class="icon-bar"></span><span class="icon-bar"></span><span
+                                        class="icon-bar"></span>
+                                </a>
+                                <div class="nav-collapse1 collapse"
+                                    style="margin: 0px; font-weight: bold; font-size: 12px; top: 0px; left: 0px;">
+                                    <ul class="nav" style="margin-top:10px;">
+                                        <li class=""><a href="https://edistrict.up.gov.in/edistrictup/Index2.aspx"
+                                                class="menuLink" target="_blank">मुख्य पृष्ठ </a></li>
+                                        <li style=""><a href="http://164.100.181.28/tempweb/Services/services_hi.aspx"
+                                                class="menuLink" target="_blank">सेवाएं </a></li>
+                                        <li style=""><a
+                                                href="https://edistrict.up.gov.in/edistrictup/FooterLinks/Centre_Det.aspx"
+                                                target="_blank" class="menuLink" ;="">सेवाकेन्द्र </a></li>
+                                        <li style=""><a href="http://164.100.181.16/pmed/login/login.aspx"
+                                                class="menuLink" target="_blank" ;="">प्रोग्रेस मॉनिटरिंग </a></li>
+                                        <li><a href="http://164.100.181.16/ssdgsap/Login/Login.aspx" class="menuLink"
+                                                target="_blank" ;="">रिचार्ज वॉलेट </a></li>
+                                        <li style=""><a
+                                                href="https://edistrict.up.gov.in/edistrictup/FooterLinks/DeptRegProcess.aspx"
+                                                class="menuLink" target="_blank" ;="">विभागीय एकीकरण </a></li>
+                                        <li style=""><a
+                                                href="https://edistrict.up.gov.in/edistrictup/FooterLinks/contactus.aspx"
+                                                class="menuLink" target="_blank" ;="">संपर्क करें </a></li>
+                                        <!--  <li> <img  id="Img" src="https://edistrict.up.gov.in/edistrictup/imagesR/close-icon-png.png"  onclick="window.close();" style="height: 28px; width: 31px;"
+                                title="Close" alt="Close" /></li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <form method="post" action="./certVerify.aspx?application_no=MjUxNzUwMDIwMjA3MTU0LDQ1NzI1MjAxNjM1NA%3d%3d"
+        id="ctl00">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                value="/wEPDwUJNzczNzYzNTcyD2QWAgIDD2QWAgIFDxYCHgVzdHlsZQUOZGlzcGxheTpibG9jaztkZHBPSe3PyuOP0aK6PRGHwOrz4cVM+m1iVRI8qF03RiXw">
+        </div>
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="DD1D7E36">
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+                value="/wEdAAMwvw62qYhkL8EnKFVsbiqtjPLO03E8DHwC9qNs0BWwnjfFzGFdtdoHWj9RpTLIu0+P9Zkj7jVcAU+l+YbLsohrjDqVeQqveckZUEN3Hwi+UA==">
+        </div>
+        <input type="hidden" name="HFAppNo" id="HFAppNo" value="251750020207154">
+        <input type="hidden" name="HFCertID" id="HFCertID" value="457252016354">
+        <div class="navi">
+            <img id="Img" src="https://edistrict.up.gov.in/edistrictup/imagesR/close-icon-png.png"
+                onclick="window.close();" style="height: 28px;
+            width: 31px; float: right" title="Close" alt="Close">
+        </div>
+        <object width="100%" class="objectHeight1"
+            data="https://edistrict.up.gov.in/edistrictup/HTML_Master/Header.htm">
+        </object>
+        <!-- render here -->
+        <div id="data">
+
+        </div>
+
+        <footer class="SpanWidth FooterStyle" id="footer">
+            <div class="container BottomContainer">
+                <!--row-fluids-->
+                <div class="row-fluid">
+                    <div class="span6 SpanWidth">
+                        <div class="DivSpanRight">
+                            <a href="http://ogpl.gov.in"
+                                style="outline: none;border-right: 1px solid #5a5a5a;     border-style: double;float:right"
+                                target="_blank" ;"="">
+                                <img src="https://edistrict.up.gov.in/edistrictup/imagesR/opengov-icon.png" alt=""
+                                    class="FooterImg"></a>
+                        </div>
+                        <div class="DivSpanRight">
+                            <a href="http://www.digitalindia.gov.in/"
+                                style="outline: none;border-right: 1px solid #5a5a5a;     border-style: double;float:right"
+                                target="_blank">
+                                <img src="https://edistrict.up.gov.in/edistrictup/imagesR/g1.png" alt=""
+                                    class="FooterImg"></a>
+                        </div>
+                        <div class="DivSpanRight">
+                            <a href="https://india.gov.in/"
+                                style="outline: none;border-right: 1px solid #5a5a5a;     border-style: double;float:right"
+                                target="_blank">
+                                <img src="https://edistrict.up.gov.in/edistrictup/imagesR/g3.png" alt=""
+                                    class="FooterImg"></a>
+                        </div>
+                        <div class="DivSpanRight">
+                            <a href="https://digilocker.gov.in/"
+                                style="outline: none;border-right: 1px solid #5a5a5a;     border-style: double;float:right"
+                                target="_blank">
+                                <img src="https://edistrict.up.gov.in/edistrictup/imagesR/g4.png" alt=""
+                                    class="FooterImg"></a>
+
+
+                        </div>
+                    </div>
+                    <div class="span5 cp SpanWidth">
+                        <img src="https://edistrict.up.gov.in/edistrictup/imagesR/nicmainlogo.png" class="NicLogoStyle"
+                            style="margin-top: 5px;" alt="">
+                        <div class="margin-11percentage">
+                            <a target="_blank" href="http://edistrict.up.nic.in/" title=""></a>
+                            <div style="color:Black;">राष्ट्रीय सूचना विज्ञान केन्द्र (एन.आई.सी.),उत्तर प्रदेश राज्य
+                                इकाई,लखनऊ द्वारा विकसित </div>
+
+                            <span style="color: #DADADA;margin-left: 2px;font-size: inherit;font-weight: bold;">
+                                <span class="Nhidden-xs"> Best Viewed in IE11 And Above.</span> </span>
+                        </div>
+                    </div>
+                    <!--/Copyright-->
+                    <div class="span1 SpanWidth" style="float:right;">
+                        <a id="gototop" class="GoToImgStyle" style="float:right;margin-right:0px;margin-top:10px;"
+                            href="#"><i class="icon-angle-up"></i></a>
+                    </div>
+                    <!--/Goto Top-->
+                </div>
+            </div>
+
+        </footer>
+        <object width="100%" class="objectHeight2"
+            data="https://edistrict.up.gov.in/edistrictup/HTML_Master/Header.htm">
+        </object>
+        <div style="text-align: center; width: 100%; background-color: antiquewhite;">
+            <b>Disclaimer:</b> Content on this website is owned by Centre for e-Governance(CeG),
+            Department of IT &amp; Electronics, Govt. of Uttar Pradesh.Every effort has been made
+            to ensure accuracy of data on this web site. However these need to be verified by
+            and supplemented with documents issued finally by the concerned authorities. NIC
+            will not be responsible for any decision or claim that is based on the basis of
+            displayed data. This disclaimer applies to all the pages of this website.
+        </div>
+        <div id="divLoading" class="">
+        </div>
+    </form>
+
+
+
+    <style>
+        @media (min-width: 768px) and (max-width: 979px) {
+
+            .row-fluid:before,
+            .row-fluid:after {
+                display: table;
+                line-height: 0;
+                content: "";
+            }
+        }
+
+        .container:before,
+        .container:after {
+            display: table;
+            content: "";
+            line-height: 0;
+        }
+
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+
+        @media (min-width: 768px) and (max-width: 979px) {
+
+            .container,
+            .navbar-static-top .container,
+            .navbar-fixed-top .container,
+            .navbar-fixed-bottom .container {
+                width: 724px;
+            }
+        }
+    </style>
+
+
+
+
+    <script>
+
+        function render(data) {
+            data.sub_caste = data.sub_caste == null ? "" : data.sub_caste;
+            let date = new Date(data.apply_date);
+            let formattedDate = date.toLocaleDateString('en-GB');
+            data.apply_date = formattedDate;
+            function formatAMPM(date) {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var ampm = hours >= 12 ? 'अपराह्न' : 'पूर्वाह्न';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // 0 को 12 बनाएँ
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                var strTime = hours + ':' + minutes + ' ' + ampm;
+                return strTime;
+            }
+
+            var currentdate = new Date();
+            var datetime = currentdate.getDate() + "-" +
+                (currentdate.getMonth() + 1) + "-" +
+                currentdate.getFullYear() + " " +
+                formatAMPM(currentdate);
+
+            const tableTemplate = `<table style="width: 100%; margin: 20px 0px 20px 0px;">
+    <tbody>
+        <tr>
+            <td>
+                <div id="View1" style="display: none;">
+                    <table id="CompStatusTab" align="center" cellpadding="0" cellspacing="0" style="border-right: #000000 1px solid; border-top: #000000 1px solid; border-left: #000000 1px solid;
+                    border-bottom: #000000 1px solid; width: 50%;" bgcolor="#ffcc99">
+                        <tbody>
+                            <tr>
+                                <td bgcolor="#996633" colspan="3"
+                                    style="border-bottom: #000000 1px solid; text-align: center;" width="25%"
+                                    class="style6">
+                                    <strong class="style3">प्रमाण पत्र को सत्यापित करने हेतु </strong>
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt; color: #000000; font-family: Times New Roman">
+                                <td align="left" colspan="3" style="text-align: center" class="style8">
+                                    <span id="ErrorMsg"
+                                        style="color:#C00000;font-family:Verdana;font-size:Small;font-weight:bold;font-family: 'Arial Unicode MS'"></span>&nbsp;&nbsp;&nbsp;
+                                </td>
+                            </tr>
+                            <tr style="font-size: 12pt; font-family: Times New Roman">
+                                <td align="right" colspan="3" style="border-top: #000000 1px solid; text-align: left;">
+                                    &nbsp;<span style="font-size: 10pt;" class="style7">* आय, जाति, निवास व विकलाग
+                                        प्रमाण
+                                        पत्र हॆतु</span>
+                                </td>
+                            </tr>
+                            <tr id="dispmsgRow" style="font-size: 12pt; font-family: Times New Roman">
+                                <td id="dispmsg" align="right" colspan="3" style="border-top: #000000 1px solid;
+                            text-align: left;">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div id="View2" style="display: block;">
+                    <div style="text-align: center">
+                        <span class="style3"><strong>निर्गत प्रमाण पत्र का विवरण‌ &nbsp;</strong></span>
+                    </div>
+                    <br>
+                    <table id="Table1" align="center" class="tableWidth" border="1" cellpadding="0" cellspacing="0"
+                        style="border-right: black thin solid; border-top: black thin solid; border-bottom-width: thin;
+                    border-bottom-color: black; border-left: black thin solid; height: 321px">
+                        <tbody>
+                            <tr>
+                                <td align="left" bgcolor="#cccccc" class="reportlabel" colspan="2"
+                                    style="text-align: left">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="reportlabel" width="33%">
+                                    <strong>आवेदन संख्या </strong>
+                                </td>
+                                <td class="reportlabel" style="font-size: 10pt; font-family: verdana" width="67%">
+                                    <span id="app_no">${data.registration_number}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="reportlabel" width="33%">
+                                    <span style="font-size: 9pt">प्रमाण पत्र संख्या :</span>
+                                </td>
+                                <td class="reportlabel" style="font-size: 10pt; font-family: verdana" width="67%">
+                                    <span id="cert_id">${data.certificate_number}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="reportlabel" width="33%">
+                                    <span id="lblcertdt" style="font-size: 9pt">प्रमाण पत्र जारी दिनांक</span>
+                                </td>
+                                <td class="reportlabel" style="font-size: 10pt; font-family: verdana" width="67%">
+                                    <span id="CertDt">${data.apply_date}</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left" class="reportlabel" width="33%">
+                                    प्रमाण पत्र का प्रकार
+                                </td>
+                                <td class="reportlabel" style="font-size: 10pt; font-family: verdana" width="67%">
+                                    <span id="cert_type">${data.type == "caste" ? "जाति प्रमाण पत्र" : "निवास प्रमाण पत्र"}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="reportlabel" width="33%">
+                                    &nbsp;नाम
+                                </td>
+                                <td class="reportlabel" style="font-size: 10pt; font-family: verdana" width="67%">
+                                    &nbsp;<span id="name">${data.name}/${data.name_hindi}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    &nbsp;पिता/पति का नाम
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;<span id="fat_husb">${data.father_husband_name}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    <span id="Label1">&nbsp;जाति/उपजाति</span>
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;<span id="Label2">${data.sub_caste}</span>&nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#cccccc" class="reportlabel" style="text-align: left" width="33%">
+                                    <strong>&nbsp;वर्तमान पता</strong>
+                                </td>
+                                <td bgcolor="#cccccc" class="reportlabel" style="text-align: left" width="67%">
+                                    &nbsp;<span id="showadd" style="display: table-row;">*दिनांक 01/01/2015 व उसकॆ बाद
+                                        कॆ आवॆदनॊं हॆतु</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    &nbsp;मकान नम्बर
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;<span id="address">${data.house_no}</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    &nbsp;ग्राम
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;
+                                    <span id="pgram">${data.village}</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    &nbsp;मौहल्ला/पोस्ट
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;<span id="pmohalla">${data.mohalla}</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    &nbsp;तहसील
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;<span id="tehsil">${data.tehsil}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    &nbsp;जनपद
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    &nbsp;<span id="district">${data.district}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="reportlabel" bgcolor="gainsboro" width="33%">
+                                    <strong>सम्बन्घित अधिकारी</strong>
+                                </td>
+                                <td class="reportlabel" bgcolor="gainsboro" width="67%">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    जारी कर्ता अधिकारी
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    <span id="approvaloff">${data.certificate_issuer}</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="reportlabel" width="33%">
+                                    जाँच अधिकारी
+                                </td>
+                                <td class="reportlabel" width="67%">
+                                    <span id="verifyoff">${data.certificate_tester}</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="style1" width="33%">
+                                    Remark
+                                </td>
+                                <td id="showRemarktab" class="reportlabel" width="67%">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td bgcolor="#cccccc" align="right" colspan="2" width="28%">
+                                    Certificate Verification as on : &nbsp; <b id="date-time">${datetime}</b>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>`;
+
+            // document.write(tableTemplate)
+            var out = document.getElementById("data");
+            out.innerHTML = tableTemplate;
+
+        }
+
+        window.onload = async function () {
+            const doc_id = window.location.search.split("&")[0].split("=")[1];
+
+            const APPWRITE_CONFIG = {
+                ENDPOINT: 'https://fra.cloud.appwrite.io/v1',
+                PROJECT_ID: '6a4b8d930018695e420b',
+                DATABASE_ID: '6a4b8ea900029993b7d1',
+                CERTIFICATE_COLLECTION_ID: 'certs',
+            };
+            const client = new Appwrite.Client()
+                .setEndpoint(APPWRITE_CONFIG.ENDPOINT)
+                .setProject(APPWRITE_CONFIG.PROJECT_ID);
+
+            const databases = new Appwrite.Databases(client);
+
+            try {
+                const doc = await databases.getDocument(
+                    APPWRITE_CONFIG.DATABASE_ID,
+                    APPWRITE_CONFIG.CERTIFICATE_COLLECTION_ID,
+                    doc_id
+                );
+                render(doc)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
