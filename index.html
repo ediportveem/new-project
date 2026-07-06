@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UP e-Seva | Certificate Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
+  <script src="main.js"></script>
+
+  <style>
+    :root {
+      --navy: #122c4e;
+      --navy-light: #1c3f6e;
+      --gold: #c9973a;
+      --gold-dark: #a97c26;
+      --success: #1f8a52;
+      --danger: #c0392b;
+      --bg: #eef1f5;
+      --card-bg: #ffffff;
+      --border: #dbe1e8;
+      --text-main: #1f2a37;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* ---------- Header ---------- */
+    header.topbar {
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .seal {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px dashed var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .seal::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .brand h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 19px;
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 11.5px;
+      color: #b9c6d8;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* ---------- Layout ---------- */
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    /* ---------- Dashboard cards ---------- */
+    .dash-heading {
+      margin-bottom: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dash-heading h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      margin: 0 0 6px;
+      color: var(--navy);
+    }
+
+    .dash-heading p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14.5px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 680px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(18, 44, 78, 0.12);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(201, 151, 58, 0.08);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .service-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+
+    .btn-outline:hover {
+      background: rgba(18, 44, 78, 0.06);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-danger:hover {
+      background: #a0281c;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* ---------- Documents Table ---------- */
+    .doc-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      margin-top: 30px;
+    }
+
+    .doc-section h3 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--navy);
+      margin-top: 0;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .actions-cell {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* ---------- Form views ---------- */
+    .form-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 34px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border);
+    }
+
+    .form-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .form-topbar h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--navy);
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold-dark);
+      margin: 26px 0 14px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.4px;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 4px;
+    }
+
+    label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #3b4657;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+      background: #fbfcfd;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 4px rgba(18, 44, 78, 0.08);
+      background: #fff;
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      background: #f8f9fa;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--success);
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      display: none;
+      z-index: 50;
+    }
+
+    .toast.error {
+      background: var(--danger);
+    }
+
+    .toast.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="seal"></div>
+      <div>
+        <h1>UP e-Seva Portal</h1>
+        <span>Certificate Application Dashboard</span>
+      </div>
+    </div>
+    <div id="auth-header-btn"></div>
+  </header>
+
+  <main>
+
+    <section id="view-login" class="view active">
+      <div class="form-card" style="max-width: 450px; margin: 40px auto;">
+        <h2 style="font-family: 'Poppins', sans-serif; color: var(--navy); margin-bottom: 20px; text-align: center;">Account Login</h2>
+        <form id="loginForm">
+          <div class="form-group" style="margin-bottom: 15px;">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter password" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Login</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="view-dashboard" class="view">
+      <div class="dash-heading">
+        <div>
+          <h2 id="welcome-text">Welcome back</h2>
+          <p>Choose a certificate type to start a new application.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="service-card">
+          <div class="card-icon">🏠</div>
+          <h3>Domicile Certificate</h3>
+          <p>निवास प्रमाण पत्र के लिए आवेदन करें — required for admissions, jobs and residence proof.</p>
+          <button class="btn btn-primary" onclick="showView('view-domicile')">+ New Domicile Certificate</button>
+        </div>
+
+        <div class="service-card">
+          <div class="card-icon">📜</div>
+          <h3>Caste Certificate</h3>
+          <p>जाति प्रमाण पत्र के लिए आवेदन करें — required for reservation benefits and scholarships.</p>
+          <button class="btn btn-primary" onclick="showView('view-caste')">+ New Caste Certificate</button>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h3>Your Applications / आपके दस्तावेज़</h3>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>District</th>
+                <th>Certificate No.</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="documentsTableBody">
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--text-muted);">Loading documents...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-domicile" class="view">
+      <div class="form-card">
+        <div class="form-topbar">
+          <h2>New Domicile Certificate / निवास प्रमाण पत्र</h2>
+          <button class="btn btn-outline" onclick="showView('view-dashboard')">← Back</button>
+        </div>
+
+        <form id="domicileForm" autocomplete="off">
+          <div class="section-title">Personal Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name (English)</label>
+              <input type="text" placeholder="Full Name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label>नाम (हिंदी में)</label>
+              <input type="text" placeholder="नाम हिंदी में" name="name_hindi" required>
+            </div>
+            <div class="form-group">
+              <label>Relation / सम्बन्ध *</label>
+              <select name="relation" required>
+                <option value="पुत्र/पुत्री">पुत्र/पुत्री (Son/Daughter)</option>
+                <option value="पत्नी">पत्नी (Wife)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Father/Husband Name (Hindi) *</label>
+              <input type="text" placeholder="पिता/पति का नाम" name="father_husband_name" required>
+            </div>
+            <div class="form-group">
+              <label>Mother Name (Hindi)</label>
+              <input type="text" placeholder="माता का नाम" name="mother_name" required>
+            </div>
+          </div>
+
+          <div class="section-title">Address & Location</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>House No. / मकान नंबर</label>
+              <input type="number" placeholder="00" name="house_no" required>
+            </div>
+            <div class="form-group">
+              <label>Mohalla / मोहल्ला / Post</label>
+              <input type="text" placeholder="Mohalla/Post Office" name="mohalla" required>
+            </div>
+            <div class="form-group">
+              <label>Police Station / थाना</label>
+              <input type="text" placeholder="Police Station" name="police_station" required>
+            </div>
+            <div class="form-group">
+              <label>Village / ग्राम</label>
+              <input type="text" placeholder="Village Name" name="village" required>
+            </div>
+            <div class="form-group">
+              <label>Tehsil / तहसील</label>
+              <input type="text" placeholder="Tehsil" name="tehsil">
+            </div>
+            <div class="form-group">
+              <label>District / ज़िला</label>
+              <select name="district" class="district-select" required>
+                <option value="">Select District</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">Documents & Date</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Application Date</label>
+              <input type="date" name="apply_date" required>
+            </div>
+            <div class="form-group">
+              <label>Upload Photo</label>
+              <input type="file" id="domicilePhotoFile" name="photo" accept="image/*" required>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="domicileSubmitBtn">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="view-caste" class="view">
+      <div class="form-card">
+        <div class="form-topbar">
+          <h2>New Caste Certificate / जाति प्रमाण पत्र</h2>
+          <button class="btn btn-outline" onclick="showView('view-dashboard')">← Back</button>
+        </div>
+
+        <form id="casteForm" autocomplete="off">
+          <div class="section-title">Personal Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name (English)</label>
+              <input type="text" placeholder="Full Name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label>नाम (हिंदी में)</label>
+              <input type="text" placeholder="नाम हिंदी में" name="name_hindi" required>
+            </div>
+            <div class="form-group">
+              <label>Relation / सम्बन्ध *</label>
+              <select name="relation" required>
+                <option value="पुत्र/पुत्री">पुत्र/पुत्री (Son/Daughter)</option>
+                <option value="पत्नी">पत्नी (Wife)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Father/Husband Name (Hindi) *</label>
+              <input type="text" placeholder="पिता/पति का नाम" name="father_husband_name" required>
+            </div>
+            <div class="form-group">
+              <label>Mother Name (Hindi)</label>
+              <input type="text" placeholder="माता का नाम" name="mother_name" required>
+            </div>
+          </div>
+
+          <div class="section-title">Caste Details / जाति विवरण</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Caste Category / जाति वर्ग *</label>
+              <select name="caste_category" required>
+                <option value="सामान्य">सामान्य (General)</option>
+                <option value="पिछड़ा वर्ग">पिछड़ा वर्ग (OBC)</option>
+                <option value="अनुसूचित जाति">अनुसूचित जाति (SC)</option>
+                <option value="अनुसूचित जनजाति">अनुसूचित जनजाति (ST)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Sub-Caste / उप-जाति</label>
+              <input type="text" placeholder="e.g. यादव, कुर्मी, जाटव" name="sub_caste" required>
+            </div>
+          </div>
+
+          <div class="section-title">Address & Location</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>House No. / मकान नंबर</label>
+              <input type="number" placeholder="00" name="house_no" required>
+            </div>
+            <div class="form-group">
+              <label>Mohalla / मोहल्ला / Post</label>
+              <input type="text" placeholder="Mohalla/Post Office" name="mohalla" required>
+            </div>
+            <div class="form-group">
+              <label>Police Station / थाना</label>
+              <input type="text" placeholder="Police Station" name="police_station" required>
+            </div>
+            <div class="form-group">
+              <label>Village / ग्राम</label>
+              <input type="text" placeholder="Village Name" name="village" required>
+            </div>
+            <div class="form-group">
+              <label>Tehsil / तहसील</label>
+              <input type="text" placeholder="Tehsil" name="tehsil">
+            </div>
+            <div class="form-group">
+              <label>District / ज़िला</label>
+              <select name="district" class="district-select" required>
+                <option value="">Select District</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">Documents & Date</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Application Date</label>
+              <input type="date" name="apply_date" required>
+            </div>
+            <div class="form-group">
+              <label>Upload Photo</label>
+              <input type="file" id="castePhotoFile" name="photo" accept="image/*" required>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="casteSubmitBtn">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /* =========================================================================
+        APPWRITE CONFIGURATION
+       ========================================================================= */
+    const APPWRITE_CONFIG = {
+      ENDPOINT: 'https://fra.cloud.appwrite.io/v1',
+      PROJECT_ID: '6a4b8d930018695e420b',
+      DATABASE_ID: '6a4b8ea900029993b7d1',
+      CERTIFICATE_COLLECTION_ID: 'certs',
+      BUCKET_ID: '6a4b8e2c00087f9a88c9'
+    };
+
+    const client = new Appwrite.Client()
+      .setEndpoint(APPWRITE_CONFIG.ENDPOINT)
+      .setProject(APPWRITE_CONFIG.PROJECT_ID);
+
+    const databases = new Appwrite.Databases(client);
+    const account = new Appwrite.Account(client);
+    const storage = new Appwrite.Storage(client);
+
+    let currentUser = null;
+
+    /* =========================================================================
+        NAVIGATION & ALERTS
+       ========================================================================= */
+    function showView(id) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast show' + (isError ? ' error' : '');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    /* =========================================================================
+        DISTRICT LIST
+       ========================================================================= */
+    const districts = [
+      "सीतापुर", "सोनभद्र", "वाराणसी", "आगरा", "अलीगढ़", "अयोध्या", "आजमगढ़", "बरेली", "बस्ती", "इटावा",
+      "फ़र्रूख़ाबाद", "जौनपुर", "झाँसी", "कासगंज", "कौशाम्बी", "ललितपुर", "लखीमपुर खीरी", "लखनऊ", "रायबरेली",
+      "रामपुर", "संत रविदास नगर", "शाहजहाँपुर", "सिद्धार्थनगर", "मुरादाबाद", "मुजफ्फरनगर", "मैनपुरी", "मथुरा",
+      "मेरठ", "मिर्ज़ापुर", "सुल्तानपुर", "उन्नाव", "पीलीभीत", "प्रतापगढ", "गाजियाबाद", "गोंडा", "देवरिया", "एटा",
+      "बलिया", "बलरामपुर", "बुलंदशहर", "चंदौली", "गोरखपुर", "हमीरपुर", "फतेहपुर", "फिरोजाबाद", "अम्बेडकर नगर",
+      "अमेठी", "बिजनौर", "बदायूँ", "हाथरस", "जालौन", "सम्भल", "संत कबीरनगर", "महोबा", "महाराजगंज", "हापुड़",
+      "हरदोई", "अमरोहा", "औरैया", "कानपुर देहात", "कानपुर नगर", "गौतमबुद्ध नगर", "गाजीपुर", "बागपत", "बहराइच",
+      "कुशीनगर", "बाँदा", "बाराबंकी", "शामली", "श्रावस्ती", "प्रयागराज", "सहारनपुर", "मऊ", "कन्नौज"
+    ];
+
+    document.querySelectorAll('.district-select').forEach(select => {
+      districts.forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = d;
+        select.appendChild(opt);
+      });
+    });
+
+    /* =========================================================================
+        DISTRICT-WISE FIX NAMES GENERATOR (Deterministic Hash Code)
+       ========================================================================= */
+    function generateNumericId(length) {
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += Math.floor(Math.random() * 10);
+      }
+      return result;
+    }
+
+    const OFFICIAL_FIRST_NAMES = [
+      "ARVIND", "RAJESH", "SANJAY", "VIJAY", "ANIL", "SUNIL", "RAKESH", "DINESH",
+      "MAHESH", "SURESH", "RAMESH", "NARESH", "ASHOK", "PRAMOD", "VINOD", "MANOJ",
+      "SANDEEP", "PRADEEP", "SATISH", "GIRISH", "KAMLESH", "YOGESH", "MUKESH",
+      "ALOK", "VIKRAM", "DEEPAK", "RAVI", "ANAND", "HARISH", "OM PRAKASH"
+    ];
+
+    const OFFICIAL_LAST_NAMES = [
+      "SINGH", "SHARMA", "VERMA", "YADAV", "GUPTA", "MISHRA", "PANDEY", "TRIPATHI",
+      "DUBEY", "TIWARI", "AWASTHI", "SRIVASTAVA", "CHAUHAN", "RASTOGI", "AGARWAL",
+      "JAISWAL", "MAURYA", "PRASAD", "DIXIT", "KHANNA"
+    ];
+
+    function hashString(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+      }
+      return hash;
+    }
+
+    // Is logic se har ek district ke liye unique aur fix tester/issuer assign hoga
+    function getOfficialName(district, role) {
+      if (!district) return "NOT ASSIGNED";
+      const seed = hashString(district + '_' + role);
+      const first = OFFICIAL_FIRST_NAMES[seed % OFFICIAL_FIRST_NAMES.length];
+      const last = OFFICIAL_LAST_NAMES[Math.floor(seed / 7) % OFFICIAL_LAST_NAMES.length];
+      return `${first} ${last}`;
+    }
+
+    /* =========================================================================
+        AUTHENTICATION LOGIC (LOGIN & USER CHECK)
+       ========================================================================= */
+    async function checkUserSession() {
+      try {
+        currentUser = await account.get();
+        document.getElementById('welcome-text').textContent = `Welcome back, ${currentUser.name || currentUser.email}`;
+        document.getElementById('auth-header-btn').innerHTML = `<button class="btn btn-outline" style="color:#fff; border-color:#fff;" onclick="logoutUser()">Logout</button>`;
+        showView('view-dashboard');
+        fetchUserDocuments();
+      } catch (error) {
+        currentUser = null;
+        document.getElementById('auth-header-btn').innerHTML = '';
+        showView('view-login');
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        await account.createEmailPasswordSession(email, password);
+        showToast('Login successful!');
+        checkUserSession();
+      } catch (error) {
+        console.error(error);
+        showToast('Login failed: ' + error.message, true);
+      }
+    });
+
+    async function logoutUser() {
+      try {
+        await account.deleteSession('current');
+        currentUser = null;
+        showToast('Logged out successfully');
+        checkUserSession();
+      } catch (error) {
+        showToast('Logout failed', true);
+      }
+    }
+
+    /* =========================================================================
+        APPWRITE DATABASE CRUD OPERATIONS
+       ========================================================================= */
+    async function fetchUserDocuments() {
+      const tbody = document.getElementById('documentsTableBody');
+      try {
+        const response = await databases.listDocuments(
+          APPWRITE_CONFIG.DATABASE_ID,
+          APPWRITE_CONFIG.CERTIFICATE_COLLECTION_ID
+        );
+
+        tbody.innerHTML = '';
+
+        if (response.documents.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-muted);">No documents found.</td></tr>`;
+          return;
+        }
+
+        response.documents?.reverse().forEach(doc => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="text-transform: capitalize; font-weight: 600;">${doc.type}</td>
+            <td>${doc.name}</td>
+            <td>${doc.district}</td>
+            <td><code>${doc.certificate_number}</code></td>
+            <td>${doc.apply_date}</td>
+            <td class="actions-cell">
+              <button class="btn btn-outline" style="padding: 6px 12px; font-size: 12px;" onclick="viewDocumentData('${doc.$id}')">View</button>
+              <button class="btn btn-danger" style="padding: 6px 12px; font-size: 12px;" onclick="deleteDocumentData('${doc.$id}', '${doc.photo}')">Delete</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+      } catch (error) {
+        console.error(error);
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--danger);">Failed to load documents.</td></tr>`;
+      }
+    }
+
+    async function viewDocumentData(documentId) {
+      try {
+        const doc = await databases.getDocument(
+          APPWRITE_CONFIG.DATABASE_ID,
+          APPWRITE_CONFIG.CERTIFICATE_COLLECTION_ID,
+          documentId
+        );
+        console.log("📍 Appwrite Document Data View:", doc);
+        let date = new Date(doc.apply_date);
+        let formattedDate = date.toLocaleDateString('en-GB');
+        doc.apply_date = formattedDate;
+        feed_data(doc)
+        showToast("Document logged to DevTools Console!");
+      } catch (error) {
+        console.error(error);
+        showToast("Error reading document", true);
+      }
+    }
+
+    async function deleteDocumentData(documentId, photoFileId) {
+      if(!confirm("Are you sure you want to delete this application?")) return;
+
+      try {
+        // 1. Delete Document from DB
+        await databases.deleteDocument(
+          APPWRITE_CONFIG.DATABASE_ID,
+          APPWRITE_CONFIG.CERTIFICATE_COLLECTION_ID,
+          documentId
+        );
+
+        // 2. Try deleting original uploaded photo from Bucket (optional error fallback)
+        if (photoFileId && photoFileId !== "uploaded_file.jpg") {
+          try {
+            await storage.deleteFile(APPWRITE_CONFIG.BUCKET_ID, photoFileId);
+          } catch(storageErr) {
+            console.warn("Storage file delete skip/failed:", storageErr);
+          }
+        }
+
+        showToast("Document deleted successfully!");
+        fetchUserDocuments();
+      } catch (error) {
+        console.error(error);
+        showToast("Failed to delete document: " + error.message, true);
+      }
+    }
+
+    /* =========================================================================
+        FORM SUBMIT HANDLER WITH STORAGE UPLOAD
+       ========================================================================= */
+    async function handleSubmit(formEl, fileInputId, submitBtn, type) {
+      if (!currentUser) {
+        showToast("Please login first!", true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const fileInput = document.getElementById(fileInputId);
+        let photoValue = "uploaded_file.jpg";
+
+        // APPWRITE BUCKET UPLOAD LOGIC
+        if (fileInput && fileInput.files.length > 0) {
+          const selectedFile = fileInput.files[0];
+          showToast('Uploading photo to server...');
+          
+          const uploadedFile = await storage.createFile(
+            APPWRITE_CONFIG.BUCKET_ID,
+            Appwrite.ID.unique(),
+            selectedFile
+          );
+          // file ID received from storage response
+          photoValue = uploadedFile.$id; 
+        }
+
+        // Prepare document payload data
+        const formData = new FormData(formEl);
+        const payload = { type };
+
+        for (const [key, value] of formData.entries()) {
+          if (key === 'photo') {
+            payload[key] = photoValue; // Store the unique file ID as string reference
+          } else {
+            payload[key] = value;
+          }
+        }
+
+        // Auto-generate static values
+        payload.certificate_number = generateNumericId(12);
+        payload.registration_number = generateNumericId(15);
+        payload.certificate_issuer = getOfficialName(payload.district, 'issuer');
+        payload.certificate_tester = getOfficialName(payload.district, 'tester');
+
+        // Create Database Document Entry
+        await databases.createDocument(
+          APPWRITE_CONFIG.DATABASE_ID,
+          APPWRITE_CONFIG.CERTIFICATE_COLLECTION_ID,
+          Appwrite.ID.unique(),
+          payload
+        );
+
+        showToast(`Submitted! Certificate No: ${payload.certificate_number}`);
+        formEl.reset();
+        
+        showView('view-dashboard');
+        fetchUserDocuments();
+      } catch (err) {
+        console.error(err);
+        showToast('Submission failed: ' + (err.message || 'please try again'), true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+      }
+    }
+
+    document.getElementById('domicileForm').addEventListener('submit', e => {
+      e.preventDefault();
+      handleSubmit(
+        e.target,
+        'domicilePhotoFile',
+        document.getElementById('domicileSubmitBtn'),
+        "domicile"
+      );
+    });
+
+    document.getElementById('casteForm').addEventListener('submit', e => {
+      e.preventDefault();
+      handleSubmit(
+        e.target,
+        'castePhotoFile',
+        document.getElementById('casteSubmitBtn'),
+        "caste"
+      );
+    });
+
+    // Run verification status
+    checkUserSession();
+  </script>
+
+</body>
+</html>
