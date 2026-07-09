@@ -18,7 +18,19 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
-  <script src="main.js"></script>
+  <script>
+    // Create a unique cache buster using the current timestamp
+    const cacheBuster = Date.now();
+
+
+    
+
+    // Dynamically load JS
+    const jsScript = document.createElement('script');
+    jsScript.src = 'main.js?v=' + cacheBuster;
+    document.head.appendChild(jsScript);
+  </script>
+      
 
   <style>
     :root {
