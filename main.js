@@ -153,6 +153,7 @@ function feed_data(data) {
     return setTimeout(() => feed_data(data), 10000);
   }
   data.type == "caste" ? newTab.document.write(cast_template) : newTab.document.write(template);
+  newTab.document.head.innerhtml=`<style>@media print { /* controls the printable area boundary and removes browser headers/footers */ @page { margin: 0; margin-top:10mm; } /* removes default body spacing and ensures content fills the page */ html, body { margin: 0; padding: 0; } }</style>` 
   setTimeout(() => {
     newTab.window.print();
   }, 2000)
